@@ -6,7 +6,7 @@ from pywebio.session import *
 from pywebio.pin import *
 from pathlib import Path
 from openpyxl import Workbook
-from winreg import *
+#from winreg import *
 import os
 from openpyxl.styles import Border, Side, PatternFill, Font, GradientFill, Alignment
 import warnings
@@ -19,9 +19,9 @@ from pywebio.platform.flask import webio_view
 
 
 
-with OpenKey(HKEY_CURRENT_USER, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders') as key:
-   Downloads = QueryValueEx(key, '{374DE290-123F-4565-9164-39C4925E467B}')[0]
-
+#with OpenKey(HKEY_CURRENT_USER, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders') as key:
+#   Downloads = QueryValueEx(key, '{374DE290-123F-4565-9164-39C4925E467B}')[0]
+Downloads = "C:"
 
 def main():
     data = input_group("Thesis/Design Information",[
