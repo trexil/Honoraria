@@ -13,8 +13,10 @@ import warnings
 import argparse
 from pywebio.exceptions import SessionClosedException
 from pywebio import start_server
+from flask import Flask, send_from_directory
+from pywebio import STATIC_PATH
+from pywebio.platform.flask import webio_view
 
-warnings.filterwarnings("ignore")
 
 
 with OpenKey(HKEY_CURRENT_USER, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders') as key:
