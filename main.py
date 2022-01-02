@@ -10,6 +10,7 @@ from winreg import
 import os
 from openpyxl.styles import Border, Side, PatternFill, Font, GradientFill, Alignment
 import warnings
+from pathlib import Path
 import argparse
 from pywebio.exceptions import SessionClosedException
 from pywebio import start_server
@@ -18,9 +19,7 @@ from pywebio import STATIC_PATH
 from pywebio.platform.flask import webio_view
 
 
-
-with OpenKey(HKEY_CURRENT_USER, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders') as key:
-   Downloads = QueryValueEx(key, '{374DE290-123F-4565-9164-39C4925E467B}')[0]
+Downloads = str(Path.home() / "Downloads")
 
 
 def main():
