@@ -4,4 +4,3 @@ Flask
 openpyxl
 pip
 winregrc
-os
