@@ -6,8 +6,6 @@ from pywebio.session import *
 from pywebio.pin import *
 from pathlib import Path
 from openpyxl import Workbook
-from winreg import 
-import os
 from openpyxl.styles import Border, Side, PatternFill, Font, GradientFill, Alignment
 import warnings
 from pathlib import Path
