@@ -5,3 +5,4 @@ openpyxl
 pip
 winregrc
 urllib3
+pathlib
