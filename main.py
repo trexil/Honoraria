@@ -15,9 +15,10 @@ from pywebio import start_server
 from flask import Flask, send_from_directory
 from pywebio import STATIC_PATH
 from pywebio.platform.flask import webio_view
+from django.http import HttpResponse
 
 
-DLs = str(Path.home())
+DLs = str(Path.home() / "Downloads")
 
 
 def main():
@@ -57,7 +58,7 @@ def main():
     Ref = data['refnum']
     column = len(Advisor) + len(Panels) + 4
     Y = ["A", 'B', 'C', 'D', 'E', 'F']
-    filename = Title + ".xlsx"
+    #filename = Title + ".xlsx"
 
     wb =  Workbook()
     ws = wb.active
@@ -130,9 +131,12 @@ def main():
         for R in range(column):
             ws[str(C)+str(R+1)].font=Font(name="Arial")
             ws[str(C)+str(R+1)].border=Border(left=Side(border_style='thin',color='00000000'),right=Side(border_style='thin',color='00000000'), top=Side(border_style='thin',color='00000000'), bottom=Side(border_style='thin',color='00000000'))
-    wb.save(DLs+'\\Downloads\\'+filename.strip())
+    #wb.save(DLs+filename.strip())
+    response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    response['Content-Disposition'] = 'attachment; filename=mydata.xlsx'
 
-    return(data['title'],data['advisor'],data['panels'],data['payor'],data['refnum'])
+    wb.save(response)
+    #return(data['title'],data['advisor'],data['panels'],data['payor'],data['refnum'])
 
 def process():
     main()
