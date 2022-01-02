@@ -17,7 +17,7 @@ from pywebio import STATIC_PATH
 from pywebio.platform.flask import webio_view
 
 
-Downloads = str(Path.home() / "Downloads")
+DLs = str(Path.home() / "Downloads")
 
 
 def main():
@@ -130,7 +130,7 @@ def main():
         for R in range(column):
             ws[str(C)+str(R+1)].font=Font(name="Arial")
             ws[str(C)+str(R+1)].border=Border(left=Side(border_style='thin',color='00000000'),right=Side(border_style='thin',color='00000000'), top=Side(border_style='thin',color='00000000'), bottom=Side(border_style='thin',color='00000000'))
-    wb.save(Downloads+'\\'+filename.strip())
+    wb.save(DLs+'\\'+filename.strip())
 
     return(data['title'],data['advisor'],data['panels'],data['payor'],data['refnum'])
 
