@@ -4,4 +4,4 @@ Flask
 openpyxl
 pip
 winregrc
-winreg.OpenKey
+_winreg
