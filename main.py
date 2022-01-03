@@ -13,7 +13,7 @@ import argparse
 from io import *
 from pywebio.exceptions import SessionClosedException
 from pywebio import start_server
-from flask import Flask, send_from_directory, send_file
+from flask import Flask, send_from_directory, send_file, make_response
 from pywebio import STATIC_PATH
 from pywebio.platform.flask import webio_view
 
@@ -130,9 +130,16 @@ def main():
         for R in range(column):
             ws[str(C)+str(R+1)].font=Font(name="Arial")
             ws[str(C)+str(R+1)].border=Border(left=Side(border_style='thin',color='00000000'),right=Side(border_style='thin',color='00000000'), top=Side(border_style='thin',color='00000000'), bottom=Side(border_style='thin',color='00000000'))
+    
     wb.save(filename.strip())
-    put_file(filename, wb.save(filename.strip()),'download link')
- 
+    XLSX_MIMETYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    app = Flask(__name__, static_folder=None)
+    @app.route('/report1/<string:report_id>', methods=['GET'])
+    downloadFile = filename
+    send_file(downloadFile, as_attachment = True,\
+              attachment_filename = downloadFileName,\
+              mimetype = XLSX_MIMETYPE)
+    
     #return(data['title'],data['advisor'],data['panels'],data['payor'],data['refnum'])
 
 def process():
