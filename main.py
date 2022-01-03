@@ -136,10 +136,10 @@ def main():
     
    
     #output = wb.save(file_name)
-    buffer = io.BytesIO()
-    wb.save(buffer)
-    buffer.seek(0)
-    return FileResponse(buffer, as_attachment=True, filename=fname)
+    #buffer = io.BytesIO()
+    wb.save(DownloadFolder+'\\'+fname)
+    #buffer.seek(0)
+    #return FileResponse(buffer, as_attachment=True, filename=fname)
     #return output
     #return(data['title'],data['advisor'],data['panels'],data['payor'],data['refnum'])
 
@@ -161,9 +161,3 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     start_server(process, port=args.port)
-
-
-
-
-
-
