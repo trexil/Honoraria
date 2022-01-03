@@ -133,8 +133,8 @@ def main():
     
     
     file_name = Title +'_template.xltx'
-    wb.save(file_name, as_template=True)
-    send_from_directory(filename, as_attachment = True)
+    wb.save(file_name)
+    send_from_directory(DownloadFolder, filename, as_attachment = True, attachment_filename = file_name)
     
     #return(data['title'],data['advisor'],data['panels'],data['payor'],data['refnum'])
 
