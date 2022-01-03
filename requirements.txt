@@ -6,4 +6,3 @@ pip
 winregrc
 urllib3
 pathlib
-io
