@@ -10,6 +10,7 @@ from openpyxl.styles import Border, Side, PatternFill, Font, GradientFill, Align
 import warnings
 from pathlib import Path
 import argparse
+import io
 from pywebio.exceptions import SessionClosedException
 from pywebio import start_server
 from flask import Flask, send_from_directory, send_file
@@ -130,7 +131,7 @@ def main():
             ws[str(C)+str(R+1)].font=Font(name="Arial")
             ws[str(C)+str(R+1)].border=Border(left=Side(border_style='thin',color='00000000'),right=Side(border_style='thin',color='00000000'), top=Side(border_style='thin',color='00000000'), bottom=Side(border_style='thin',color='00000000'))
     #wb.save('DownloadFolder'+filename.strip())
-    out = StringIO.StringIO()
+    out = io.StringIO()
     wb.save(out)
     out.seek(0)
     return send_file(out, mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
