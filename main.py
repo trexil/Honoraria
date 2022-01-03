@@ -131,7 +131,6 @@ def main():
             ws[str(C)+str(R+1)].border=Border(left=Side(border_style='thin',color='00000000'),right=Side(border_style='thin',color='00000000'), top=Side(border_style='thin',color='00000000'), bottom=Side(border_style='thin',color='00000000'))
     #wb.save('C:\\'+filename.strip())
     file_name = Title +'.xlsx'
-    file_name.route(DownloadFolder)
     wb.save(file_name, as_template=True)
     send_from_directory(file_name, as_attachments=True)
     #return(data['title'],data['advisor'],data['panels'],data['payor'],data['refnum'])
