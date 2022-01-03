@@ -12,7 +12,7 @@ from pathlib import Path
 import argparse
 from pywebio.exceptions import SessionClosedException
 from pywebio import start_server
-from flask import Flask, send_from_directory
+from flask import Flask, send_from_directory, send_file
 from pywebio import STATIC_PATH
 from pywebio.platform.flask import webio_view
 
@@ -60,7 +60,7 @@ def main():
 
     wb =  Workbook()
     ws = wb.active
-
+    ws.title = Title
 
     ws.merge_cells(start_row=1, start_column=1, end_row=column, end_column=1)
     ws['A1'].alignment = Alignment(horizontal='center', vertical='center')
@@ -129,10 +129,12 @@ def main():
         for R in range(column):
             ws[str(C)+str(R+1)].font=Font(name="Arial")
             ws[str(C)+str(R+1)].border=Border(left=Side(border_style='thin',color='00000000'),right=Side(border_style='thin',color='00000000'), top=Side(border_style='thin',color='00000000'), bottom=Side(border_style='thin',color='00000000'))
-    #wb.save('C:\\'+filename.strip())
-    file_name = Title +'.xlsx'
-    wb.save(file_name)
-    send_from_directory(file_name, as_attachments=True)
+    #wb.save('DownloadFolder'+filename.strip())
+    out = StringIO.StringIO()
+    wb.save(out)
+    out.seek(0)
+    return send_file(out, mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                     attachment_filename='xxl.xlsx', as_attachment=True)
     #return(data['title'],data['advisor'],data['panels'],data['payor'],data['refnum'])
 
 def process():
