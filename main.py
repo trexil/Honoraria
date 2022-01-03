@@ -131,11 +131,8 @@ def main():
         for R in range(column):
             ws[str(C)+str(R+1)].font=Font(name="Arial")
             ws[str(C)+str(R+1)].border=Border(left=Side(border_style='thin',color='00000000'),right=Side(border_style='thin',color='00000000'), top=Side(border_style='thin',color='00000000'), bottom=Side(border_style='thin',color='00000000'))
-    #wb.save(DLs+filename.strip())
-    response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-    response['Content-Disposition'] = 'attachment; filename=mydata.xlsx'
-
-    wb.save(response)
+    wb.save('C:\\'+filename.strip())
+    
     #return(data['title'],data['advisor'],data['panels'],data['payor'],data['refnum'])
 
 def process():
