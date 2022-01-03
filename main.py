@@ -131,15 +131,11 @@ def main():
             ws[str(C)+str(R+1)].font=Font(name="Arial")
             ws[str(C)+str(R+1)].border=Border(left=Side(border_style='thin',color='00000000'),right=Side(border_style='thin',color='00000000'), top=Side(border_style='thin',color='00000000'), bottom=Side(border_style='thin',color='00000000'))
     
-    wb.save(filename.strip())
-    XLSX_MIMETYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-    app = Flask(__name__, static_folder=None)
-    @app.route('/report1/<string:report_id>', methods=['GET'])
-    downloadFileName = 'report1_' + report_id + '.xlsx'
-    downloadFile = filename
-    send_file(downloadFile, as_attachment = True,\
-              attachment_filename = downloadFileName,\
-              mimetype = XLSX_MIMETYPE)
+    
+    file_name = Title +'_template.xltx'
+    wb = load_workbook(filename)
+    wb.save(file_name, as_template=True)
+    send_from_directory(filename, as_attachment = True)
     
     #return(data['title'],data['advisor'],data['panels'],data['payor'],data['refnum'])
 
