@@ -6,4 +6,4 @@ pip
 winregrc
 urllib3
 pathlib
-django
+io
