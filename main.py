@@ -16,6 +16,8 @@ from pywebio import start_server
 from flask import Flask, send_from_directory, send_file, make_response
 from pywebio import STATIC_PATH
 from pywebio.platform.flask import webio_view
+from django.http import HttpResponse
+from django.contrib.auth.models import User
 
 DownloadFolder = str(Path.home() / "Downloads")
 
@@ -58,7 +60,9 @@ def main():
     column = len(Advisor) + len(Panels) + 4
     Y = ["A", 'B', 'C', 'D', 'E', 'F']
     filename = Title + ".xlsx"
-
+    
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="users.xls"'
     wb =  Workbook()
     ws = wb.active
     ws.title = Title
@@ -131,11 +135,10 @@ def main():
             ws[str(C)+str(R+1)].font=Font(name="Arial")
             ws[str(C)+str(R+1)].border=Border(left=Side(border_style='thin',color='00000000'),right=Side(border_style='thin',color='00000000'), top=Side(border_style='thin',color='00000000'), bottom=Side(border_style='thin',color='00000000'))
     
-    
-    file_name = Title +'_template.xltx'
-    wb.save(file_name)
-    send_from_directory(DownloadFolder, filename)
-    
+   
+    #output = wb.save(file_name)
+    wb.save(response)
+    #return output
     #return(data['title'],data['advisor'],data['panels'],data['payor'],data['refnum'])
 
 def process():
