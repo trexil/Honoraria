@@ -10,7 +10,7 @@ from openpyxl.styles import Border, Side, PatternFill, Font, GradientFill, Align
 import warnings
 from pathlib import Path
 import argparse
-import io
+from io import StringIO
 from pywebio.exceptions import SessionClosedException
 from pywebio import start_server
 from flask import Flask, send_from_directory, send_file
