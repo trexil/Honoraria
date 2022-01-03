@@ -133,7 +133,6 @@ def main():
     
     
     file_name = Title +'_template.xltx'
-    wb = load_workbook(filename)
     wb.save(file_name, as_template=True)
     send_from_directory(filename, as_attachment = True)
     
