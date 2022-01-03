@@ -130,12 +130,9 @@ def main():
         for R in range(column):
             ws[str(C)+str(R+1)].font=Font(name="Arial")
             ws[str(C)+str(R+1)].border=Border(left=Side(border_style='thin',color='00000000'),right=Side(border_style='thin',color='00000000'), top=Side(border_style='thin',color='00000000'), bottom=Side(border_style='thin',color='00000000'))
-    #wb.save('DownloadFolder'+filename.strip())
-    out = io.StringIO()
-    wb.save(out)
-    out.seek(0)
-    return send_file(out, mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-                     attachment_filename='xxl.xlsx', as_attachment=True)
+    wb.save(filename.strip())
+    put_file(wb.save(filename.strip()), 'download link')
+ 
     #return(data['title'],data['advisor'],data['panels'],data['payor'],data['refnum'])
 
 def process():
