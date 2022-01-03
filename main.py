@@ -135,6 +135,7 @@ def main():
     XLSX_MIMETYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
     app = Flask(__name__, static_folder=None)
     @app.route('/report1/<string:report_id>', methods=['GET'])
+    downloadFileName = 'report1_' + report_id + '.xlsx'
     downloadFile = filename
     send_file(downloadFile, as_attachment = True,\
               attachment_filename = downloadFileName,\
