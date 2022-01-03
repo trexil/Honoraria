@@ -131,7 +131,7 @@ def main():
             ws[str(C)+str(R+1)].font=Font(name="Arial")
             ws[str(C)+str(R+1)].border=Border(left=Side(border_style='thin',color='00000000'),right=Side(border_style='thin',color='00000000'), top=Side(border_style='thin',color='00000000'), bottom=Side(border_style='thin',color='00000000'))
     wb.save(filename.strip())
-    put_file(wb.save(filename.strip()), 'download link')
+    put_file(filename, wb.save(filename.strip()),'download link')
  
     #return(data['title'],data['advisor'],data['panels'],data['payor'],data['refnum'])
 
