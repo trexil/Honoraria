@@ -15,10 +15,8 @@ from pywebio import start_server
 from flask import Flask, send_from_directory
 from pywebio import STATIC_PATH
 from pywebio.platform.flask import webio_view
-from django.http import HttpResponse
 
-
-DLs = str(Path.home() / "Downloads")
+DownloadFolder = str(Path.home() / "Downloads")
 
 
 def main():
@@ -131,8 +129,11 @@ def main():
         for R in range(column):
             ws[str(C)+str(R+1)].font=Font(name="Arial")
             ws[str(C)+str(R+1)].border=Border(left=Side(border_style='thin',color='00000000'),right=Side(border_style='thin',color='00000000'), top=Side(border_style='thin',color='00000000'), bottom=Side(border_style='thin',color='00000000'))
-    wb.save('C:\\'+filename.strip())
-    
+    #wb.save('C:\\'+filename.strip())
+    file_name = Title +'.xlsx'
+    file_name.route(DownloadFolder)
+    wb.save(file_name, as_template=True)
+    send_from_directory(file_name, as_attachments=True)
     #return(data['title'],data['advisor'],data['panels'],data['payor'],data['refnum'])
 
 def process():
