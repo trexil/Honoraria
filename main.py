@@ -138,8 +138,7 @@ def main():
     #output = wb.save(file_name)
     #buffer = io.BytesIO()
     output = wb.save(fname.strip())
-    put_text(ws['F1'])
-    
+     put_text(output)  
     #buffer.seek(0)
     #return FileResponse(buffer, as_attachment=True, filename=fname)
     #return output
