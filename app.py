@@ -161,7 +161,8 @@ def process():
             termi = False
             
 if __name__ == '__main__':
-    app.run(threaded=True)
+    export FLASK_ENV=development
+    app.run()
     from waitress import serve
     serve(process, host="0.0.0.0", port=8080)
     #parser = argparse.ArgumentParser()
