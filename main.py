@@ -14,6 +14,7 @@ import io
 from pywebio.exceptions import SessionClosedException
 from pywebio import start_server
 from flask import Flask, send_from_directory, send_file, make_response, request
+from flask.ext import excel
 from pywebio import STATIC_PATH
 from pywebio.platform.flask import webio_view
 from django.http import FileResponse
