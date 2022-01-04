@@ -160,7 +160,7 @@ def process():
             put_text('Thank you!')
             termi = False
             
-if __name__ == '__process__':
+if __name__ == '__main__':
     #app.run()
     parser = argparse.ArgumentParser()
     parser.add_argument("-p", "--port", type=int, default=8080)
