@@ -21,6 +21,7 @@ from pywebio.platform.flask import webio_view
 
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = 'files'
 @app.route('/download', methods=['POST', 'GET'])
 DownloadFolder = str(Path.home() / "Downloads")
 
