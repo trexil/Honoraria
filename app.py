@@ -166,8 +166,8 @@ def process():
             put_text('Thank you!')
             termi = False
 
-app.add_url_rule('/tool', 'webio_view', webio_view(process),
-            methods=['GET', 'POST', 'OPTIONS']) 
+#app.add_url_rule('/tool', 'webio_view', webio_view(process),
+#            methods=['GET', 'POST', 'OPTIONS']) 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
