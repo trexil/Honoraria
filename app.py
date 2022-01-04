@@ -161,7 +161,6 @@ def process():
             termi = False
             
 if __name__ == '__main__':
-    export FLASK_ENV=development
     app.run(DEBUG=True)
     from waitress import serve
     serve(process, host="0.0.0.0", port=8080)
