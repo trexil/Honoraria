@@ -152,7 +152,10 @@ def main():
     #return output
     #return(data['title'],data['advisor'],data['panels'],data['payor'],data['refnum'])
 
-             
+
+app.add_url_rule('/tool', 'webio_view', webio_view(predict),
+            methods=['GET', 'POST', 'OPTIONS'])    
+    
 def process():
     main()
     termi = True
@@ -166,7 +169,6 @@ def process():
             termi = False
             
 if __name__ == '__main__':
-    app.run()
     parser = argparse.ArgumentParser()
     parser.add_argument("-p", "--port", type=int, default=8080)
     args = parser.parse_args()    
