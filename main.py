@@ -11,7 +11,6 @@ import warnings
 from pathlib import Path
 import argparse
 import io
-import os
 from pywebio.exceptions import SessionClosedException
 from pywebio import start_server
 from flask import Flask, send_from_directory, send_file, make_response, request
@@ -139,7 +138,7 @@ def main():
     #output = wb.save(file_name)
     #buffer = io.BytesIO()
     output = wb.save(fname.strip())
-    
+    put_text(ws['F1']
     
     #buffer.seek(0)
     #return FileResponse(buffer, as_attachment=True, filename=fname)
@@ -151,7 +150,6 @@ def process():
     termi = True
     while termi:
         put_text('Success')
-        put_text(os.getcwd())
         keep_main = radio('Continue?', ['Yes', 'No'])
         if keep_main == 'Yes':
             main()
