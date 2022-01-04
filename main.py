@@ -22,7 +22,7 @@ from django.http import FileResponse
 
 
 DownloadFolder = str(Path.home() / "Downloads")
-app = Flask('__main_')
+app = Flask(__name_)
 @app.route("/download", methods=['GET'])
 
 def main():
