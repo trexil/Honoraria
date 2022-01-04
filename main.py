@@ -154,6 +154,8 @@ def process():
         else:
             put_text('Thank you!')
             termi = False
+
+process()
             
 #if __name__ == '__main__':
 #    parser = argparse.ArgumentParser()
