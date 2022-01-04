@@ -21,6 +21,7 @@ from pywebio.platform.flask import webio_view
 
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = 'files'
 #DownloadFolder = str(Path.home() / "Downloads")
 
 
@@ -140,7 +141,7 @@ def main():
     #output = wb.save(file_name)
     #buffer = io.BytesIO()
     #output = wb.save(fname.strip())
-    send_from_directory(app.config, fname)
+    return send_from_directory(app.config['UPLOAD_FOLDER'], 'c.xlsx')
     #buffer.seek(0)
     #return FileResponse(buffer, as_attachment=True, filename=fname)
     #return output
@@ -160,8 +161,8 @@ def process():
             termi = False
             
 if __name__ == '__process__':
-    app.run()
-    #parser = argparse.ArgumentParser()
-    #parser.add_argument("-p", "--port", type=int, default=8080)
-    #args = parser.parse_args()    
-    #start_server(process, port=args.port)
+    #app.run()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-p", "--port", type=int, default=8080)
+    args = parser.parse_args()    
+    start_server(process, port=args.port)
