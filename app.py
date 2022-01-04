@@ -21,7 +21,7 @@ from pywebio.platform.flask import webio_view
 
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = 'files'
+@app.route('/download', methods=['POST', 'GET'])
 DownloadFolder = str(Path.home() / "Downloads")
 
 
@@ -161,7 +161,7 @@ def process():
             termi = False
             
 if __name__ == '__main__':
-    process.run()
+    app.run(debug=True)
     #parser = argparse.ArgumentParser()
     #parser.add_argument("-p", "--port", type=int, default=8080)
     #args = parser.parse_args()    
