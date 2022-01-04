@@ -161,8 +161,9 @@ def process():
             termi = False
             
 if __name__ == '__main__':
+    app.run()
     from waitress import serve
-    serve(app, host="0.0.0.0", port=8080)
+    serve(process, host="0.0.0.0", port=8080)
     #parser = argparse.ArgumentParser()
     #parser.add_argument("-p", "--port", type=int, default=8080)
     #args = parser.parse_args()    
