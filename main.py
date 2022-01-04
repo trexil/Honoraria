@@ -19,7 +19,8 @@ from werkzeug.utils import secure_filename
 from pywebio.platform.flask import webio_view
 
 
-
+app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = 'files'
 DownloadFolder = str(Path.home() / "Downloads")
 @app.route('/download', methods=['POST', 'GET'])
 
