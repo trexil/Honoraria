@@ -138,7 +138,7 @@ def main():
     #output = wb.save(file_name)
     #buffer = io.BytesIO()
     output = wb.save(fname.strip())
-    put_button('Click to download', lambda: download(output)
+    put_button('Click to download', lambda: download(output))
     #buffer.seek(0)
     #return FileResponse(buffer, as_attachment=True, filename=fname)
     #return output
