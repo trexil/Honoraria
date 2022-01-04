@@ -13,14 +13,16 @@ import argparse
 import io
 from pywebio.exceptions import SessionClosedException
 from pywebio import start_server
-from flask import Flask, send_from_directory, send_file, make_response, request
+from flask import Flask, send_from_directory, send_file, make_response, request, flash, redirect, render_template, url_for
 from pywebio import STATIC_PATH
+import test_function as tf
+from werkzeug.utils import secure_filename
 from pywebio.platform.flask import webio_view
-from django.http import FileResponse
+
 
 
 DownloadFolder = str(Path.home() / "Downloads")
-
+@app.route('/download', methods=['POST', 'GET'])
 
 def main():
     data = input_group("Thesis/Design Information",[
@@ -138,7 +140,7 @@ def main():
     #output = wb.save(file_name)
     #buffer = io.BytesIO()
     #output = wb.save(fname.strip())
-    put_button('Click to download', lambda: download(fname+'.xlsx', wb.save(fname.strip())))
+    send_from_directory(app.config['UPLOAD_FOLDER'], wb.save(fname.strip()))
     #buffer.seek(0)
     #return FileResponse(buffer, as_attachment=True, filename=fname)
     #return output
@@ -158,7 +160,7 @@ def process():
             termi = False
             
 if __name__ == '__main__':
-    
+    app.run()
     parser = argparse.ArgumentParser()
     parser.add_argument("-p", "--port", type=int, default=8080)
     args = parser.parse_args()    
