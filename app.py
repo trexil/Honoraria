@@ -22,6 +22,7 @@ from pywebio.platform.flask import webio_view
 
 app = Flask(__name__)
 UPLOAD_FOLDER = 'files'
+OUTPUT_FILENAME = 'c.xlsx'
 output_file_path = os.path.join(UPLOAD_FOLDER, OUTPUT_FILENAME)
 app.config['UPLOAD_FOLDER'] = 'files'
 
