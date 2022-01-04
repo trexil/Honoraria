@@ -21,6 +21,7 @@ from pywebio.platform.flask import webio_view
 
 
 app = Flask(__name__)
+export FLASK_ENV=development
 #DownloadFolder = str(Path.home() / "Downloads")
 
 
