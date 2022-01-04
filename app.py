@@ -140,7 +140,7 @@ def main():
     #output = wb.save(file_name)
     #buffer = io.BytesIO()
     #output = wb.save(fname.strip())
-    send_from_directory(app.config['UPLOAD_FOLDER'], fname)
+    send_from_directory(app.config, fname)
     #buffer.seek(0)
     #return FileResponse(buffer, as_attachment=True, filename=fname)
     #return output
