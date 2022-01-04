@@ -139,7 +139,7 @@ def main():
     #buffer = io.BytesIO()
     output = wb.save(fname.strip())
     
-    return excel.make_response_from_array([[1, 2], [3, 4]], "csv")
+    
     #buffer.seek(0)
     #return FileResponse(buffer, as_attachment=True, filename=fname)
     #return output
