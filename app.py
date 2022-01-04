@@ -153,7 +153,7 @@ def main():
     #return(data['title'],data['advisor'],data['panels'],data['payor'],data['refnum'])
 
 
-app.add_url_rule('/tool', 'webio_view', webio_view(predict),
+app.add_url_rule('/tool', 'webio_view', webio_view(main),
             methods=['GET', 'POST', 'OPTIONS'])    
     
 def process():
