@@ -13,14 +13,15 @@ import argparse
 import io
 from pywebio.exceptions import SessionClosedException
 from pywebio import start_server
-from flask import Flask, send_from_directory, send_file, make_response
+from flask import Flask, send_from_directory, send_file, make_response, request
 from pywebio import STATIC_PATH
 from pywebio.platform.flask import webio_view
 from django.http import FileResponse
 
 
 DownloadFolder = str(Path.home() / "Downloads")
-
+app = Flask(__name_)
+@app.route("/download", methods=['GET'])
 
 def main():
     data = input_group("Thesis/Design Information",[
@@ -138,7 +139,8 @@ def main():
     #output = wb.save(file_name)
     #buffer = io.BytesIO()
     output = wb.save(fname.strip())
-    return send_from_directory(DownloadFolder, output) 
+    
+    return excel.make_response_from_array([[1, 2], [3, 4]], "csv")
     #buffer.seek(0)
     #return FileResponse(buffer, as_attachment=True, filename=fname)
     #return output
