@@ -20,8 +20,7 @@ from django.http import FileResponse
 
 
 DownloadFolder = str(Path.home() / "Downloads")
-app = Flask(__name__)
-@app.route("/download", methods=['GET'])
+
 
 def main():
     data = input_group("Thesis/Design Information",[
@@ -151,6 +150,7 @@ def process():
     termi = True
     while termi:
         put_text('Success')
+        put_text(os.getcwd())
         keep_main = radio('Continue?', ['Yes', 'No'])
         if keep_main == 'Yes':
             main()
@@ -162,7 +162,6 @@ if __name__ == '__main__':
     
     parser = argparse.ArgumentParser()
     parser.add_argument("-p", "--port", type=int, default=8080)
-    app.run()
     args = parser.parse_args()
     
     start_server(process, port=args.port)
