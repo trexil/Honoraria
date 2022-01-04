@@ -22,7 +22,10 @@ from pywebio.platform.flask import webio_view
 
 app = Flask(__name__)
 UPLOAD_FOLDER = 'files'
+output_file_path = os.path.join(UPLOAD_FOLDER, OUTPUT_FILENAME)
 app.config['UPLOAD_FOLDER'] = 'files'
+
+@app.route('/download', methods=['POST', 'GET'])
 #DownloadFolder = str(Path.home() / "Downloads")
 
 
@@ -142,7 +145,7 @@ def main():
     #output = wb.save(file_name)
     #buffer = io.BytesIO()
     #output = wb.save(fname.strip())
-    return send_from_directory(app.config['UPLOAD_FOLDER'], 'c.xlsx')
+    send_from_directory(app.config['UPLOAD_FOLDER'], 'c.xlsx')
     #buffer.seek(0)
     #return FileResponse(buffer, as_attachment=True, filename=fname)
     #return output
