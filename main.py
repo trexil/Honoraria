@@ -155,9 +155,9 @@ def process():
             put_text('Thank you!')
             termi = False
             
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-p", "--port", type=int, default=8080)
-    args = parser.parse_args()
+#if __name__ == '__main__':
+#    parser = argparse.ArgumentParser()
+#    parser.add_argument("-p", "--port", type=int, default=8080)
+#    args = parser.parse_args()
 
-    start_server(process, port=args.port)
+#    start_server(process, port=args.port)
