@@ -23,7 +23,7 @@ from pywebio.platform.flask import webio_view
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'files'
 DownloadFolder = str(Path.home() / "Downloads")
-@app.route('/download', methods=['POST', 'GET'])
+
 
 def main():
     data = input_group("Thesis/Design Information",[
@@ -162,9 +162,7 @@ def process():
             
 if __name__ == '__main__':
     app.run(DEBUG=True)
-    from waitress import serve
-    serve(process, host="0.0.0.0", port=8080)
-    #parser = argparse.ArgumentParser()
-    #parser.add_argument("-p", "--port", type=int, default=8080)
-    #args = parser.parse_args()    
-    #start_server(process, port=args.port)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-p", "--port", type=int, default=8080)
+    args = parser.parse_args()    
+    start_server(process, port=args.port)
