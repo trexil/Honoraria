@@ -145,7 +145,7 @@ def main():
 
     wb.save(fname)
     with open (fname, 'rb') as fp:
-        content = fp.read()
+        content = io.BytesIO(fp.read())
     put_file(fname, content, 'download link')
     #output = wb.save(file_name)
     #buffer = io.BytesIO()
