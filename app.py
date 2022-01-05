@@ -26,7 +26,8 @@ OUTPUT_FILENAME = 'c.xlsx'
 output_file_path = os.path.join(UPLOAD_FOLDER, OUTPUT_FILENAME)
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'files'
-
+with app.app_context():
+    pass
 
 #DownloadFolder = str(Path.home() / "Downloads")
 
@@ -171,7 +172,6 @@ def process():
 #            methods=['GET', 'POST', 'OPTIONS']) 
 
 if __name__ == '__main__':
-    app.run()
     parser = argparse.ArgumentParser()
     parser.add_argument("-p", "--port", type=int, default=8080)
     args = parser.parse_args()    
