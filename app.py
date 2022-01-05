@@ -25,8 +25,7 @@ OUTPUT_FILENAME = 'c.xlsx'
 output_file_path = os.path.join(UPLOAD_FOLDER, OUTPUT_FILENAME)
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'files'
-with app.app_context():
-   init_db()
+
 
 #DownloadFolder = str(Path.home() / "Downloads")
 
