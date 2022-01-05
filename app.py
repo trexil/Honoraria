@@ -144,7 +144,7 @@ def main():
    
 
     wb.save(fname)
-    content = 'Hello from PyWebIO'
+    content = open('README.md', 'rb').read()
     put_file('download_filename.txt', content, 'download link')
     #output = wb.save(file_name)
     #buffer = io.BytesIO()
@@ -159,7 +159,6 @@ def main():
     
 def process():
     main()
-    
     termi = True
     while termi:
         put_text('Success')
