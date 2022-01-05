@@ -4,11 +4,11 @@ from pywebio.input import *
 from pywebio.output import *
 from pywebio.session import *
 from pywebio.pin import *
-from pathlib import Path
+#from pathlib import Path
 from openpyxl import Workbook
 from openpyxl.styles import Border, Side, PatternFill, Font, GradientFill, Alignment
-import warnings
-from pathlib import Path
+#import warnings
+#from pathlib import Path
 import argparse
 import io
 import os
@@ -21,10 +21,11 @@ from pywebio.platform.flask import webio_view
 import pandas as pd
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = 'files'
 UPLOAD_FOLDER = 'files'
 OUTPUT_FILENAME = 'c.xlsx'
 output_file_path = os.path.join(UPLOAD_FOLDER, OUTPUT_FILENAME)
-app.config['UPLOAD_FOLDER'] = 'files'
+
 
 
 #DownloadFolder = str(Path.home() / "Downloads")
