@@ -144,7 +144,7 @@ def main():
    
 
     wb.save(fname)
-    
+    put_file('download_filename.txt', content, 'download link')
     #output = wb.save(file_name)
     #buffer = io.BytesIO()
     #output = wb.save(fname.strip())
@@ -158,7 +158,7 @@ def main():
     
 def process():
     main()
-    put_buttons(['Download content'], lambda _: download('saved.md', pin.md_text.encode('utf8')), small=True)
+    
     termi = True
     while termi:
         put_text('Success')
