@@ -142,12 +142,12 @@ def main():
             ws[str(C)+str(R+1)].font=Font(name="Arial")
             ws[str(C)+str(R+1)].border=Border(left=Side(border_style='thin',color='00000000'),right=Side(border_style='thin',color='00000000'), top=Side(border_style='thin',color='00000000'), bottom=Side(border_style='thin',color='00000000'))
    
-    file_name = 'document_template.xltx'
-    wb.save(file_name, as_template=True)
+
+    wb.save(fname)
     #output = wb.save(file_name)
     #buffer = io.BytesIO()
     #output = wb.save(fname.strip())
-    return send_from_directory(file_name, as_template=True)
+    return send_from_directory(app.config["UPLOAD_FOLDER"], 'c.xlsx')
     #buffer.seek(0)
     #return FileResponse(buffer, as_attachment=True, filename=fname)
     #return output
@@ -156,6 +156,7 @@ def main():
    
     
 def process():
+    app.run()
     main()
     termi = True
     while termi:
