@@ -147,7 +147,7 @@ def main():
     #output = wb.save(file_name)
     #buffer = io.BytesIO()
     #output = wb.save(fname.strip())
-    return send_from_directory(app.config["UPLOAD_FOLDER"], 'c.xlsx')
+    return send_from_directory(app.config["UPLOAD_FOLDER"], 'c.xlsx', as_attachment=True)
     #buffer.seek(0)
     #return FileResponse(buffer, as_attachment=True, filename=fname)
     #return output
@@ -156,7 +156,6 @@ def main():
    
     
 def process():
-    app.run(debug = True)
     main()
     termi = True
     while termi:
