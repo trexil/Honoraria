@@ -142,11 +142,11 @@ def main():
             ws[str(C)+str(R+1)].font=Font(name="Arial")
             ws[str(C)+str(R+1)].border=Border(left=Side(border_style='thin',color='00000000'),right=Side(border_style='thin',color='00000000'), top=Side(border_style='thin',color='00000000'), bottom=Side(border_style='thin',color='00000000'))
     
-    wb.save(fname.strip())
+    wb.save(fname, as_template=True)
     #output = wb.save(file_name)
     #buffer = io.BytesIO()
     #output = wb.save(fname.strip())
-    return send_from_directory('c.xlsx, as_template=True)
+    return send_from_directory(fname, as_template=True)
     #buffer.seek(0)
     #return FileResponse(buffer, as_attachment=True, filename=fname)
     #return output
