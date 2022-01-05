@@ -144,8 +144,8 @@ def main():
    
 
     wb.save(fname)
-    content = open('README.md', 'rb').read()
-    put_file('download_filename.txt', content, 'download link')
+    content = wb.save(fname)
+    put_file(fname, content, 'download link')
     #output = wb.save(file_name)
     #buffer = io.BytesIO()
     #output = wb.save(fname.strip())
