@@ -147,8 +147,7 @@ def main():
     in_file = open(fname, 'rb')
     data = in_file.read()
     in_file.close()
-
-    put_button('Click to download', lambda:download('123.xlsx',data))
+    put_button('Download Excel File', lambda:download(fname,data))
     #output = wb.save(file_name)
     #buffer = io.BytesIO()
     #output = wb.save(fname.strip())
