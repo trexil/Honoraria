@@ -156,7 +156,7 @@ def main():
    
     
 def process():
-    app.run()
+    app.run(debug = True)
     main()
     termi = True
     while termi:
