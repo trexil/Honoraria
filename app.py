@@ -144,10 +144,11 @@ def main():
    
 
     wb.save(fname)
+    
     #output = wb.save(file_name)
     #buffer = io.BytesIO()
     #output = wb.save(fname.strip())
-    return send_from_directory(app.config["UPLOAD_FOLDER"], 'c.xlsx')
+    #return send_from_directory(app.config["UPLOAD_FOLDER"], 'c.xlsx')
     #buffer.seek(0)
     #return FileResponse(buffer, as_attachment=True, filename=fname)
     #return output
@@ -157,6 +158,7 @@ def main():
     
 def process():
     main()
+    put_buttons(['Download content'], lambda _: download('saved.md', pin.md_text.encode('utf8')), small=True)
     termi = True
     while termi:
         put_text('Success')
