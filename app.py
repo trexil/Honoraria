@@ -144,7 +144,8 @@ def main():
    
 
     wb.save(fname)
-    content = wb.save(fname)
+    with open (fname, 'rb') as fp:
+        content = fp.read()
     put_file(fname, content, 'download link')
     #output = wb.save(file_name)
     #buffer = io.BytesIO()
@@ -173,6 +174,7 @@ def process():
 #            methods=['GET', 'POST', 'OPTIONS']) 
 
 if __name__ == '__main__':
+    app.run(host='localhost', port=80)
     parser = argparse.ArgumentParser()
     parser.add_argument("-p", "--port", type=int, default=8080)
     args = parser.parse_args()    
