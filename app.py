@@ -26,7 +26,7 @@ OUTPUT_FILENAME = 'c.xlsx'
 output_file_path = os.path.join(UPLOAD_FOLDER, OUTPUT_FILENAME)
 app.config['UPLOAD_FOLDER'] = 'files'
 
-@app.route('/download', methods=['POST', 'GET'])
+
 #DownloadFolder = str(Path.home() / "Downloads")
 
 
@@ -146,7 +146,7 @@ def main():
     #output = wb.save(file_name)
     #buffer = io.BytesIO()
     #output = wb.save(fname.strip())
-    send_from_directory(app.config['UPLOAD_FOLDER'], 'c.xlsx')
+    return send_from_directory(app.config['UPLOAD_FOLDER'], 'c.xlsx')
     #buffer.seek(0)
     #return FileResponse(buffer, as_attachment=True, filename=fname)
     #return output
